@@ -1,6 +1,13 @@
 # OSClusterLocal
 Instructions and support files to create an Open Shift Installation on your laptop (Mac)
 
+Step 1: Edit oc_config.sh to reflect your environment
+Step 2: Run oc_setup.sh
+Step 3: Make sure Docker is running (1.12.1 works fine on Mac)
+Step 4: Run oc_up.sh to start your cluster
+
+Use "oc cluster down" to shutdown the cluster.
+
 # Set up a Directory Structure to run a Local OpenShift Cluster
 # in Home Directory.
 #
