@@ -2,7 +2,7 @@
   "apiVersion": "v1",
   "kind": "PersistentVolume",
   "metadata": {
-    "name": "pv0001"
+    "name": "volume_1"
   },
   "spec": {
     "capacity": {
@@ -10,7 +10,7 @@
     },
     "accessModes": [ "ReadWriteOnce" ],
     "hostPath": {
-        "path": "/Users/wkulhane/Development/OSCluster/OpenShiftVolumes/volume0001"
+        "path": "/Users/wkulhane/Development/OSCluster/OpenShiftVolumes/volume_1"
     },
     "persistentVolumeReclaimPolicy": "Recycle"
   }
