@@ -1,6 +1,8 @@
 # OpenShift Cluster on Laptop
 
-Instructions and support files to create an Open Shift Installation on your laptop (Mac)
+Instructions and support files to create an Open Shift Installation on your laptop.
+
+Note that these scripts have been written for macOS but should work just as well on any other Unix based environment.
 
 ### Prerequisites
 
@@ -11,50 +13,24 @@ Instructions and support files to create an Open Shift Installation on your lapt
 
 ### Installation Steps
 
-1. Edit oc_config.sh to reflect your environment
+1. Edit `oc_config.sh` to reflect your environment
   - Change OSHOME to your preferred location
   - Change the NUMVOLUMES if you need more / less Persistent Volumes than the default number of 5
-2. Run oc_setup.sh
+2. Run `oc_setup.sh` to create the directories for the local OpenShift cluster to store configuration data and persistent volumes
 3. Make sure Docker is running
-4. Run oc_up.sh to start your cluster
+4. Run `oc_up.sh` to start your cluster
   - Pay attention to the output for the IP Address of your master
   - This is where you need to point your browser to for the OpenShift Console.
   - Default Developer Account is `developer` with password `developer`
-5. Run oc_createpv.sh to create your Persistent Volumes (note this does't work yet...)
+5. Run `oc_createpv.sh` to create your Persistent Volumes
 
-Use "oc cluster down" to shutdown the cluster when you are done.
+Use `oc cluster down` to shutdown the cluster when you are done.
 
-Use oc_remove.sh to completely remove the cluster information (e.g. when your IP Address has changed and you need to set up from scratch).
+Use `oc_remove.sh` to completely remove the cluster information (e.g. when your IP Address has changed and you need to set up from scratch).
+
+For subsequent uses (on the same IP Address) use `oc_up.sh` to start the cluster and `oc cluster down` to shut down the cluster.
 
 ### Limitations
 
-- IP Addresses
-
-
-# Other
-
-Set up a Directory Structure to run a Local OpenShift Cluster in Home Directory.
-
-  This script will also prepare the environment to use
- Persistent Volumes. The default is 5 persistent volumes.
-
- Change the NUMVOLUMES in os_config.sh if you need more / less PVs.
-
- This script has been written for macOS but should work just as well on
- any other Unix based environment
-
- Run a Local OpenShift Cluster in Home Directory
-
- This script persists data and configuration between restarts.
-
- Limitations: If your IP Address changes the cluster will no longer come
-              up since there are a lot of IP specific configurations
-              In that case clean up the environment and set up a new one.
-
- Setting up Persistent Volumes:
-   After the Cluster is up and running and you are logged in as
-   system:admin run the setup_pvs.sh script to set up your physical Volumes
-
-
- This script has been written for macOS but should work just as well on
- any other Unix based environment
+- IP Addresses: When your IP Address changes (e.g. when moving from home office to office) the cluster will no longer work since IP Addresses are hard coded into configuration files.
+  - One workaround (not tested) may be to set this up in a Virtual Machine where the local IP address always stays the same.
