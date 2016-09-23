@@ -18,20 +18,16 @@ source oc_config.sh
 
 for i in `seq 1 $NUM_VOLUMES`
 do
-  VOLUMENAME=volume${i}
-  echo \
-"apiVersion: v1
-  kind: PersistentVolume
+  echo "apiVersion: v1
+kind: PersistentVolume
 metadata:
-  creationTimestamp: null
-  name: ${VOLUMENAME}
+  name: volume${i}
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 1Gi
+    storage: 5Gi
   hostPath:
-    path: ${OSHOME}/OpenShiftVolumes/${VOLUMENAME}
-  persistentVolumeReclaimPolicy: Retain
-status: {}" >tmp.txt #| oc create -f -
+    path: ${OSHOME}/OpenShiftVolumes/volume${i}
+  persistentVolumeReclaimPolicy: Recycle" | oc create -f -
 done
