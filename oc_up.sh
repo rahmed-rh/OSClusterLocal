@@ -31,6 +31,7 @@ oc cluster up \
 	--host-volumes-dir=$OSHOME/OpenShiftVolumes \
 	--host-config-dir=$OSHOME/OpenShiftConfig \
 	--metrics=true \
+	--public-hostname=127.0.0.1 \
 	--use-existing-config
 
 oc login -u system:admin
