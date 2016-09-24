@@ -34,3 +34,4 @@ For subsequent uses (on the same IP Address) use `oc_up.sh` to start the cluster
 
 - IP Addresses: When your IP Address changes (e.g. when moving from home office to office) the cluster will no longer work since IP Addresses are hard coded into configuration files.
   - One workaround (not tested) may be to set this up in a Virtual Machine where the local IP address always stays the same.
+  - Added --public-hostname parameter to oc_up.sh script. Need to test if this fixes it.
