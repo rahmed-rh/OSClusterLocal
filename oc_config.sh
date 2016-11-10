@@ -9,4 +9,4 @@
 # any other Unix based environment
 
 OSHOME=$HOME/OSCluster
-NUM_VOLUMES=5
+NUM_VOLUMES=15

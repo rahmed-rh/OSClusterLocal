@@ -20,5 +20,5 @@ mkdir -p $OSHOME/OpenShiftConfig
 mkdir -p $OSHOME/OpenShiftData
 for i in `seq 1 $NUM_VOLUMES`
 do
-  mkdir -p $OSHOME/OpenShiftVolumes/volume000${i}
+  mkdir -p $OSHOME/OpenShiftVolumes/volume_${i}
 done
