@@ -23,9 +23,10 @@ oc cluster up \
 	--host-data-dir=$OSHOME/OpenShiftData \
 	--host-volumes-dir=$OSHOME/OpenShiftVolumes \
 	--host-config-dir=$OSHOME/OpenShiftConfig \
-	--metrics=true \
+	--metrics=false \
 	--public-hostname=127.0.0.1 \
 	--image=registry.access.redhat.com/openshift3/ose \
+	--version=v3.3.1.5 \
 	--use-existing-config
 
 # oc login -u system:admin https://127.0.0.1:8443
