@@ -18,7 +18,8 @@ Note that these scripts have been written for macOS but should work just as well
   - Change OSVERSION if you want another version of OpenShift
 2. Make sure Docker is running
 3. Run `oc_up.sh` to start your cluster
-  - Default Developer Account is `developer` with password `developer`. This account will be set up with full Cluster Admin priviledges
+  - Default Developer Account is `developer` with password `developer`. This account will be set up with full Cluster Admin privileges
+4. Point your browser to https://127.0.0.1:8443 to start working with OpenShift
 
 Use `oc cluster down` to shutdown the cluster when you are done.
 
