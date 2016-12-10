@@ -12,6 +12,7 @@
 #
 # -------------------------------------------------------------
 # CAREFUL: THIS SCRIPT WILL REMOVE EVERYTHING UNDER OSHOME!!!!!
+#          INCLUDING $OSHOME
 # -------------------------------------------------------------
 
 source ./oc_config.sh
@@ -19,3 +20,4 @@ source ./oc_config.sh
 rm -rf $OSHOME/OpenShiftConfig
 rm -rf $OSHOME/OpenShiftData
 rm -rf $OSHOME/OpenShiftVolumes
+rm -rf $OSHOME
