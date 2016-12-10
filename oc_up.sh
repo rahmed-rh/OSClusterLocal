@@ -4,19 +4,14 @@
 # ----------------------------
 # Run a Local OpenShift Cluster in Home Directory
 #
+# Edit the oc_config.sh script for configuration options.
+#
 # This script persists data and configuration between restarts.
-#
-# Setting up Persistent Volumes:
-#   After the Cluster is up and running and you are logged in as
-#   system:admin run the setup_pvs.sh script to set up your physical Volumes
-#
-# Change OSHOME to your preferred location.
 #
 # This script has been written for macOS but should work just as well on
 # any other Unix based environment
 
-# ----- No Changes below this line -----
-
+# Read configuration
 source ./oc_config.sh
 
 function startCluster() {
