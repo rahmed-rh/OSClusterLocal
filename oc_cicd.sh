@@ -33,3 +33,6 @@ oc new-app jenkins-persistent --param MEMORY_LIMIT=1Gi \
 
 # Patch Jenkins Deployment Configuration
 oc patch dc jenkins -p '{"spec": {"template": {"spec": {"containers":[{"name":"jenkins","livenessProbe":  {"initialDelaySeconds": 500}}]}}}}'
+
+
+# oc volume dc/postgresql --add --name=postgresql-data --type=PersistentVolumeClaim --claim-name=postgresql --mount-path=/var/lib/pqsql/data
