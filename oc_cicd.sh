@@ -30,3 +30,6 @@ oc volume dc nexus3 --add --name=nexus3-1 --type=PersistentVolumeClaim \
 # Now add a Jenkins with persistent Storage
 oc new-app jenkins-persistent --param MEMORY_LIMIT=1Gi \
  --param VOLUME_CAPACITY=5Gi --param JENKINS_PASSWORD=admin123 -n cicd
+
+# Patch Jenkins Deployment Configuration
+oc patch dc jenkins -p '{"spec": {"template": {"spec": {"containers":[{"name":"jenkins","livenessProbe":  {"initialDelaySeconds": 500}}]}}}}'
