@@ -21,6 +21,7 @@ oc expose svc/nexus3
 
 # First remove all volumes
 oc volume dc nexus3 --remove --confirm
+sleep 1
 
 # Then add a new volume
 oc volume dc nexus3 --add --name=nexus3-1 --type=PersistentVolumeClaim \
