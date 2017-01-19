@@ -13,5 +13,5 @@
 OSHOME=$HOME/OSCluster
 
 OSREGISTRY=registry.access.redhat.com/openshift3/ose
-OSVERSION=v3.3.1.7
+OSVERSION=v3.4.0.39
 NUM_VOLUMES=20

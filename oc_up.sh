@@ -16,14 +16,14 @@ source ./oc_config.sh
 
 function startCluster() {
   oc cluster up \
-    --image=$OSREGISTRY \
-    --version=$OSVERSION \
     --host-data-dir=$OSHOME/OpenShiftData \
     --host-volumes-dir=$OSHOME/OpenShiftVolumes \
     --host-config-dir=$OSHOME/OpenShiftConfig \
     --public-hostname=127.0.0.1 \
     --use-existing-config
-    # --metrics=true \
+#    --image=$OSREGISTRY \
+#    --version=$OSVERSION \
+#    --metrics=true \
 }
 
 function setupDirectories {
@@ -90,7 +90,6 @@ if [ ! -f "$OSHOME/OpenShiftConfig/master/master-config.yaml" ]; then
   echo "**  Configuring initial cluster"
   echo "**"
   oc login -u system:admin
-#  oc login -u system:admin https://127.0.0.1:8443
   oc adm policy add-cluster-role-to-user cluster-admin developer
 
   echo "**"
@@ -99,17 +98,19 @@ if [ ! -f "$OSHOME/OpenShiftConfig/master/master-config.yaml" ]; then
   # Create PVs
   createPV
 
+  # Next two steps are only necessary for OpenShift Container Platform 3.3
+  # In 3.4 the pipelines are already enabled so no need to modify the master-config.yaml file.
   echo "**"
   echo "**  Shutting down cluster"
   echo "**"
   # Take cluster down
-  oc cluster down
+  # oc cluster down
 
   echo "**"
   echo "**  Setting up Tech Preview Features"
   echo "**"
   # Set up Tech Preview Features
-  setupTechPreview
+  # setupTechPreview
 
   echo "**"
   echo "** Initial Setup Complete"
@@ -118,14 +119,12 @@ else
   echo "**"
   echo "**  Found previous configuration"
   echo "**"
+  echo "** Starting Cluster"
+  echo "**"
+  startCluster
 fi
 
-# Set up Complete (or not first start)
-# Now start cluster
-echo "**"
-echo "** Starting Cluster"
-echo "**"
-startCluster
+# Set up Complete
 
 echo "**"
 echo "** Cluster Initialization Complete"
